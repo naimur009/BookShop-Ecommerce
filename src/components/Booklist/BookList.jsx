@@ -1,12 +1,10 @@
-import React from 'react';
+
 
 const BookList = () => {
-
-    const book = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,1];
-
+    let book = [1, 2, 3, 4, 5, 6, 7];
     return (
         <div>
-            <section className="bg-gray-50 py-4 lg:p-5 antialiased lg:py-8 rounded-lg mt-3 lg:w-[80%] xl:w-[70%] m-auto">
+            <section className="w-[95%] shadow-md bg-white py-4 lg:p-5 antialiased lg:py-8 rounded-lg mt-3 lg:w-[80%] xl:w-[70%] m-auto">
                 <div className="mx-auto max-w-screen-xl px-4 2xl:px-0">
                     <div className="mb-4 flex items-center justify-between gap-4 lg:mb-8">
                         <h2 className="text-xl font-semibold sm:text-2xl">Featured Books</h2>
@@ -20,7 +18,6 @@ const BookList = () => {
                     </div>
 
                     <div className="grid gap-6 2xl:gap-8 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5">
-
 
                         {
                             book.map((book) => {
@@ -43,12 +40,6 @@ const BookList = () => {
                                 )
                             })
                         }
-
-
-
-
-
-
 
                     </div>
                 </div>
