@@ -3,7 +3,7 @@
 const Category = () => {
 
     return (
-        <section className="w-[95%] bg-white py-4 lg:p-5 antialiased lg:py-8 mt-3 rounded-lg shadow-md lg:w-[80%] xl:w-[70%] m-auto ">
+        <section className="w-[95%] bg-white py-4 lg:p-5 antialiased lg:py-8 mt-3 rounded-lg shadow-md lg2:w-[80%] xl:w-[70%] m-auto ">
             <div className="mx-auto max-w-screen-xl px-4 2xl:px-0">
                 <div className="mb-4 flex items-center justify-between gap-4 lg:mb-8">
                     <h2 className="text-xl font-semibold sm:text-2xl">Category</h2>

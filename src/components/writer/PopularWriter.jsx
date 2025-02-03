@@ -64,7 +64,7 @@ const PopularWriter = () => {
 
     return (
         <div>
-            <section className="w-[95%] shadow-md bg-white py-4 lg:p-5 antialiased lg:py-8 rounded-lg mt-3 lg:w-[80%] xl:w-[70%] m-auto">
+            <section className="w-[95%] shadow-md bg-white py-4 lg:p-5 antialiased lg:py-8 rounded-lg mt-3 lg2:w-[80%] xl:w-[70%] m-auto">
                 <div className="mx-auto max-w-screen-xl px-4 2xl:px-0">
                     <div className="mb-4 flex items-center justify-between gap-4 lg:mb-8">
                         <h2 className="text-xl font-semibold sm:text-2xl">Popular Writer</h2>

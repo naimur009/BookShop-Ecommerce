@@ -15,11 +15,11 @@ const AllBooks = () => {
                         {
                             book.map((book) => {
                                 return (
-                                    <div key={book} className=' bg-white flex flex-col justify-center items-center rounded-lg hover:cursor-pointer hover:bg-gray-100 border-[1px] border-gray-400 py-4 px-4 hover:border-green-600'>
+                                    <div key={book} className=' bg-white flex flex-col justify-center items-center rounded-lg hover:cursor-pointer hover:bg-gray-100 border-[1px] border-gray-400 p-2 md:p-4 hover:border-green-600'>
                                         {/* Image */}
                                         <img className='h-auto max-h-[280px]' src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1534070883i/6411961.jpg" alt="" />
                                         {/* book name */}
-                                        <div className='flex flex-col items-center gap-1 mt-1 mb-1'>
+                                        <div className='flex flex-col items-center mt-1 mb-0'>
                                             <p className='text-sm font-medium text-center'>The Lost Symbol</p>
                                             <p className='text-xs text-center'>Dan Brown</p>
                                             <p>$20</p>
