@@ -17,14 +17,14 @@ const BookList = () => {
                         </a>
                     </div>
 
-                    <div className="grid gap-6 2xl:gap-8 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5">
+                    <div className="grid gap-6 2xl:gap-8 grid-cols-2 md:grid-cols-3 lg:grid-cols-3 2xl:grid-cols-4">
 
                         {
                             book.map((book) => {
                                 return (
                                     <div className=' bg-white flex flex-col justify-center items-center rounded-lg hover:cursor-pointer hover:bg-gray-100 border-[1px] border-gray-400 py-4 hover:border-green-600'>
                                         {/* Image */}
-                                        <img className='h-[200px] lg:h-[250px]' src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1534070883i/6411961.jpg" alt="" />
+                                        <img className='h-auto max-h-[270px]' src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1534070883i/6411961.jpg" alt="" />
                                         {/* book name */}
                                         <div className='flex flex-col items-center gap-1 mt-1 mb-1'>
                                             <p className='text-sm font-medium text-center'>The Lost Symbol</p>
@@ -32,7 +32,7 @@ const BookList = () => {
                                             <p>$20</p>
                                         </div>
                                         <div className='w-full flex justify-center'>
-                                            <button className='w-[90%] bg-green-600 text-white font-bold py-1.5 rounded-lg hover:bg-white border-2 border-green-600 hover:text-green-600'>
+                                            <button className='w-[90%] text-xs md:text-sm bg-green-600 text-white font-bold py-1.5 rounded-lg hover:bg-white border-2 border-green-600 hover:text-green-600'>
                                                 Add to cart
                                             </button>
                                         </div>

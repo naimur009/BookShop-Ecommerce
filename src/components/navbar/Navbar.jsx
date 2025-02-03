@@ -17,7 +17,7 @@ const Navbar = () => {
                         className='h-full flex items-center hover:cursor-pointer'
                     >
                         <NavLink to='/'
-                            className='text-2xl lg:text-4xl font-bold italic'
+                            className='text-2xl lg2:text-4xl font-bold italic'
                         >Book
                             <span
                                 className="text-green-600">
@@ -41,7 +41,7 @@ const Navbar = () => {
                     </div>
 
                     {/* link */}
-                    <div className="hidden lg:flex gap-6 text-xl font-medium items-center">
+                    <div className="hidden lg:flex gap-6 lg:text-base lg2:text-xl font-medium items-center">
                         <button
                             className="p-2.5 ms-2 text-sm font-bold text-gray-900 rounded-lg flex justify-center items-center"
                             onClick={() => setShowMenu(!showMenu)}

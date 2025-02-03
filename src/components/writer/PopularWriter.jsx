@@ -77,7 +77,7 @@ const PopularWriter = () => {
                         </a>
                     </div>
 
-                    <div className="grid gap-4 grid-cols-3 md:grid-cols-5 xl:grid-cols-6">
+                    <div className="grid gap-4 grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
 
                         {
                             writer.map((writer) => {

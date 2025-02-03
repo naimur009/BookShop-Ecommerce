@@ -14,7 +14,7 @@ const Filter = () => {
     };
 
     const categories = [
-        "Apple (56)", "Microsoft (45)", "Logitech (97)", "Sony (234)", "Asus (97)",
+        "Apple askdso vjoiedvf erfieopvfi (56)", "Microsoft (45)", "Logitech (97)", "Sony (234)", "Asus (97)",
         "Dell (56)", "MSI (97)", "Canon (49)", "BenQ (23)", "Razor (49)"
     ];
 
@@ -27,9 +27,9 @@ const Filter = () => {
     };
 
     return (
-        <div className="w-[100%] lg:w-64 bg-white p-4 rounded-lg shadow-md mt-2 lg:mt-7 h-[fit-content]">
+        <div className="w-[100%] lg2:flex lg2:flex-col lg2:flex-shrink-0 lg2:w-[fit-content] bg-white p-4 rounded-lg shadow-md mt-2 lg2:mt-7 h-[fit-content]">
             <div className="flex justify-between items-center mb-2">
-                <h3 className="font-semibold hidden lg:block">Filters</h3>
+                <h3 className="font-semibold hidden lg2:block">Filters</h3>
             </div>
             <div className="relative mb-3">
                 <Search className="absolute left-2 top-2 text-gray-400" size={16} />
@@ -59,7 +59,6 @@ const Filter = () => {
                                 <label>{category}</label>
                             </div>
                         ))}
-                        {/* <button className="text-blue-500 text-xs">View all</button> */}
                     </div>
                 )}
             </div>
