@@ -4,8 +4,8 @@ const Cart = () => {
     const cartItems = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
 
     return (
-        <div className='mt-4 flex flex-col w-[95%] lg2:w-[70%] items-center lg2:items-start m-auto gap-3 lg2:flex-row'>
-            <div className='w-full lg:w-2/3 bg-white rounded-xl shadow-lg p-6 shrink-0'>
+        <div className='mt-4 lg:mt-6 flex flex-col w-[95%] md:w-[70%] items-center lg2:items-start m-auto gap-3 lg2:flex-row'>
+            <div className='w-full lg2:w-3/5 bg-white rounded-xl shadow-lg p-6 shrink-0'>
                 <h1 className='font-bold text-sm lg:text-xl text-center mb-6'>Your Cart Items</h1>
                 <div>
                     {cartItems.map((item, index) => (
@@ -33,8 +33,8 @@ const Cart = () => {
                 </div>
             </div>
 
-            <div className='w-full lg2:w-[fit-content]  bg-white rounded-xl shadow-lg p-6 h-[fit-content] flex shrink-0'>
-                <div className='w-full lg2:w-[fit-content] text-sm'>
+            <div className='w-full lg2:w-2/5  bg-white rounded-xl shadow-lg p-6 h-[fit-content] flex shrink-0'>
+                <div className='w-full text-sm'>
                     <h2 className='text-base font-bold mb-4'>Billing</h2>
                     <div className='flex justify-between mb-4'>
                         <span className='text-gray-600'>Subtotal</span>
