@@ -8,8 +8,8 @@ const Navbar = () => {
     const [showMenu, setShowMenu] = useState(false);
 
     return (
-        <div className="w-screen pb-[63px] shadow-lg">
-            <div className="flex flex-col items-center justify-center bg-white fixed top-0 z-10">
+        <div className="w-screen pb-[62px] shadow-lg ">
+            <div className="flex flex-col items-center justify-center bg-white fixed top-0 z-10 border-b-2 border-gray-300">
                 <nav className='h-[60px] lg:h-[80px] w-[80%] lg:w-[70%] m-auto flex justify-between'>
 
                     {/* logo */}
@@ -41,7 +41,7 @@ const Navbar = () => {
                     </div>
 
                     {/* link */}
-                    <div className="hidden lg:flex gap-6 lg:text-base lg2:text-xl font-medium items-center">
+                    <div className="hidden lg:flex gap-6 lg:text-base font-medium items-center">
                         <button
                             className="p-2.5 ms-2 text-sm font-bold text-gray-900 rounded-lg flex justify-center items-center"
                             onClick={() => setShowMenu(!showMenu)}

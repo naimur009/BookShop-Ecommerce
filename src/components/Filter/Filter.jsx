@@ -14,7 +14,7 @@ const Filter = () => {
     };
 
     const categories = [
-        "Apple askdso vjoiedvf erfieopvfi (56)", "Microsoft (45)", "Logitech (97)", "Sony (234)", "Asus (97)",
+        "Apple askdso vjoiedvf (56)", "Microsoft (45)", "Logitech (97)", "Sony (234)", "Asus (97)",
         "Dell (56)", "MSI (97)", "Canon (49)", "BenQ (23)", "Razor (49)"
     ];
 
@@ -36,12 +36,14 @@ const Filter = () => {
                 <input
                     type="text"
                     placeholder="Search keywords..."
-                    className="pl-8 pr-2 py-1 w-full border rounded-md focus:outline-none"
+                    className="pl-8 pr-2 py-1 w-full border rounded-md focus:outline-none text-sm"
                 />
             </div>
+
+
             <div className="border-b py-2">
                 <button
-                    className="flex justify-between w-full text-left"
+                    className="flex justify-between w-full text-left text-sm"
                     onClick={() => toggleFilter("category")}
                 >
                     Category
@@ -66,7 +68,7 @@ const Filter = () => {
 
             <div className="border-b py-2">
                 <button
-                    className="flex justify-between w-full text-left"
+                    className="flex justify-between w-full text-left text-sm"
                     onClick={() => toggleFilter("writer")}
                 >
                     Writer

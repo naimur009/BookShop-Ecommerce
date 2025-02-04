@@ -6,14 +6,14 @@ const Cart = () => {
     return (
         <div className='mt-4 lg:mt-6 flex flex-col w-[95%] md:w-[70%] items-center lg2:items-start m-auto gap-3 lg2:flex-row'>
             <div className='w-full lg2:w-3/5 bg-white rounded-xl shadow-lg p-6 shrink-0'>
-                <h1 className='font-bold text-sm lg:text-xl text-center mb-6'>Your Cart Items</h1>
+                <h1 className='text-lg font-semibold text-center mb-2'>Your Cart Items</h1>
                 <div>
                     {cartItems.map((item, index) => (
                         <div key={index} className='flex justify-between gap-8 items-center mb-4 p-4 border-b'>
                             <div className='flex items-center gap-4'>
                                 <img className='h-20 lg:h-32' src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1534070883i/6411961.jpg" alt="Book" />
                                 <div>
-                                    <div className='text-xs lg:text-sm font-semibold'>The Lost Symbol The Lost Symbol The Lost Symbol The Lost Symbol </div>
+                                    <div className='text-xs lg:text-sm'>The Lost Symbol The Lost Symbol The Lost Symbol The Lost Symbol </div>
                                     <div className='text-gray-600 text-xs'>Dan Brown</div>
                                     <div className='flex items-center mt-2'>
                                         <button className='text-gray-600 border rounded p-1'>

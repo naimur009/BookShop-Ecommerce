@@ -6,8 +6,8 @@ const AllBooks = () => {
         <div className='lg2:flex lg2:flex-shrink-0'>
             <section className="bg-white py-2 lg2:p-5 antialiased lg:py-8 rounded-lg lg2:mt-7">
                 <div className="mx-auto px-4 2xl:px-0">
-                    <div className="mb-4 flex items-center justify-between gap-1 lg:mb-8">
-                        <h2 className="text-xl font-semibold sm:text-2xl">Books</h2>
+                    <div className="mb-4 flex items-center justify-between gap-1 lg:mb-4">
+                        <h2 className="text-lg font-semibold">Books</h2>
                     </div>
 
                     <div className="grid gap-6 md:gap-4 2xl:gap-4 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 lg2:grid-cols-3 2xl:grid-cols-4">

@@ -6,7 +6,7 @@ const Footer = () => {
         <div className='w-screen m-auto mt-2 mb-20 lg:mb-4'>
             <footer className="bg-white rounded-lg shadow-md mb-16 flex flex-col lg:mb-3 justify-center items-center w-[95%] m-auto lg:w-[98%]">
                 <div className="w-full mx-auto p-4 flex flex-col items-center justify-between gap-2 lg:flex-row">
-                    <span className="text-sm sm:text-center">© 2024 <a href="/" className="hover:underline text-green-600">BookStore™</a>. All Rights Reserved.
+                    <span className="text-sm sm:text-center">© 2024 <a href="/" className="hover:underline text-green-600">BookShop™</a>. All Rights Reserved.
                     </span>
                     <ul className="flex flex-wrap items-center mt-3 text-sm font-medium sm:mt-0">
                         <li>
@@ -27,7 +27,7 @@ const Footer = () => {
                     Naimur Rahman</a></p>
             </footer>
 
-            <div className="h-[60px] w-screen bg-white fixed bottom-0 lg:hidden flex justify-evenly items-center">
+            <div className="h-[60px] w-screen bg-white fixed bottom-0 lg:hidden flex justify-evenly items-center border-t-2 border-gray-300">
 
                 {/* Home */}
                 <NavLink to="/" className='flex flex-col items-center'>
@@ -44,15 +44,6 @@ const Footer = () => {
                     </svg>
                     <p className='text-sm'>Books</p>
                 </NavLink>
-
-                {/* wishlist */}
-                {/* <a href='#' className='flex flex-col items-center'>
-                    <svg className='h-5 w-5' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                        <path fill='red' d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z" />
-                    </svg>
-                    <p className='text-sm'>WishList</p>
-                </a> */}
-
 
                 {/* Cart */}
                 <NavLink to='/cart' className='flex flex-col items-center'>

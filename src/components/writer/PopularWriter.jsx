@@ -67,14 +67,14 @@ const PopularWriter = () => {
             <section className="w-[95%] shadow-md bg-white py-4 lg:p-5 antialiased lg:py-8 rounded-lg mt-3 lg2:w-[80%] xl:w-[70%] m-auto">
                 <div className="mx-auto max-w-screen-xl px-4 2xl:px-0">
                     <div className="mb-4 flex items-center justify-between gap-4 lg:mb-8">
-                        <h2 className="text-xl font-semibold sm:text-2xl">Popular Writer</h2>
+                        <h2 className="text-lg font-semibold ">Popular Writer</h2>
 
-                        <a href="#" title="" className="flex items-center text-base font-medium text-primary-700 hover:underline text-green-600">
+                        {/* <a href="#" title="" className="flex items-center text-base font-medium text-primary-700 hover:underline text-green-600">
                             See more
                             <svg className="ms-1 h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                 <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 12H5m14 0-4 4m4-4-4-4" />
                             </svg>
-                        </a>
+                        </a> */}
                     </div>
 
                     <div className="grid gap-4 grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
@@ -84,7 +84,7 @@ const PopularWriter = () => {
                                 return (
                                     <a href='#' className='flex flex-col justify-center items-center gap-2 p-2 w-28 h-36 rounded-lg bg-white hover:border-green-600 hover:border-2 hover:cursor-pointer hover:text-green-600'>
                                         <div className='h-24 w-24 rounded-full'>
-                                            <img className='h-[100%] w-[100%] rounded-full object-cover' src={writer.image} alt={writer.name} />
+                                            <img className='h-[100%] w-[100%] p-2 rounded-full object-cover' src={writer.image} alt={writer.name} />
                                         </div>
                                         <p className='text-sm text-center font-medium'>{writer.name}</p>
                                     </a>
