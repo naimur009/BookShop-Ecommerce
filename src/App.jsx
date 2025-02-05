@@ -7,6 +7,8 @@ import Cart from './components/Cart/Cart';
 import SignIn from './components/SignIn/SignIn';
 import SignUp from './components/SignUp/SignUp';
 import Profile from './components/Profile/Profile';
+import { Provider } from 'react-redux';
+import { store } from './redux-store/store';
 
 function App() {
 
@@ -45,9 +47,11 @@ function App() {
 
   ])
   return (
-    <div className="overflow-x-hidden h-screen overflow-y-scroll no-scrollbar bg-[#EFFAFC]">
-      <RouterProvider router={router} />
-    </div>
+    <Provider store={store}>
+      <div className="overflow-x-hidden h-screen overflow-y-scroll no-scrollbar bg-[#EFFAFC]">
+        <RouterProvider router={router} />
+      </div>
+    </Provider>
   )
 }
 
