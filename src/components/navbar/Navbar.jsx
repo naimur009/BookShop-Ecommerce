@@ -10,7 +10,7 @@ const Navbar = () => {
     return (
         <div className="w-screen lg:pb-[62px] shadow-lg ">
             <div className="flex flex-col items-center justify-center bg-white lg:fixed top-0 z-10 border-b-2 border-gray-300">
-                <nav className='h-[50px] lg:h-[80px] w-[80%] lg:w-[70%] m-auto flex justify-center lg:justify-between items-center gap-4'>
+                <nav className='h-[50px] lg:h-[70px] w-[80%] lg:w-[70%] m-auto flex justify-center lg:justify-between items-center gap-4'>
 
                     {/* logo */}
                     <div
