@@ -9,7 +9,7 @@ const Hero = () => {
                     <TypeAnimation
                         sequence={[
                             // Same substring at the start will only be typed out once, initially
-                            'Welcome to BookStore',
+                            'Welcome to BookShop',
                             2000, // wait 1s before replacing "Mice" with "Hamsters"
                             'Get Books At Yout Door Step',
                             2000,
