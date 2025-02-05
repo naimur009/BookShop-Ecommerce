@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 const Cart = () => {
     const cartItems = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
+
+    useEffect(() => {
+        document.title = "Cart - Bookstore";
+    }, [])
 
     return (
         <div className='mt-4 lg:mt-6 flex flex-col w-[95%] md:w-[70%] items-center lg2:items-start m-auto gap-3 lg2:flex-row'>

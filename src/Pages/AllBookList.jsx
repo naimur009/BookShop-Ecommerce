@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useState } from 'react';
 import Filter from '../components/Filter/Filter';
 import AllBooks from '../components/All-Books/AllBooks';
 
 const AllBookList = () => {
+
+    useEffect(() => {
+        document.title = "All Books - Bookstore";
+    }, [])
 
     const [showFilter, setShowFilter] = useState(false);
 

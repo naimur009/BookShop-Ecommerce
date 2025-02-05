@@ -6,6 +6,7 @@ import AllBookList from './Pages/AllBookList';
 import Cart from './components/Cart/Cart';
 import SignIn from './components/SignIn/SignIn';
 import SignUp from './components/SignUp/SignUp';
+import Profile from './components/Profile/Profile';
 
 function App() {
 
@@ -33,6 +34,10 @@ function App() {
         {
           path: "/signup",
           element: <SignUp />
+        },
+        {
+          path: "/profile",
+          element: <Profile />
         }
 
       ]

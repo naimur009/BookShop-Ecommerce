@@ -1,7 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 
 const SignUp = () => {
+
+    useEffect(() => {
+        document.title = "Sign Up - Bookstore";
+    }, [])
+
     return (
         <div className="w-[95%] m-auto flex items-center justify-center mt-3 lg:mt-8">
             <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">

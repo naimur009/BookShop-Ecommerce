@@ -50,10 +50,10 @@ const Navbar = () => {
                                 <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
                             </svg>
                         </button>
-                        <NavLink to="/" className="hover:text-green-600"> Home </NavLink>
-                        <NavLink to="/books" className="hover:text-green-600"> All-Books </NavLink>
-                        <NavLink to="/cart" className="hover:text-green-600"> Cart </NavLink>
-                        <NavLink to="/signin" className="hover:text-green-600"> Sign-in </NavLink>
+                        <NavLink to="/" className={({ isActive }) => `hover:text-green-600 ${isActive ? "text-green-600" : ""}`}> Home </NavLink>
+                        <NavLink to="/books" className={({ isActive }) => `hover:text-green-600 ${isActive ? "text-green-600" : ""}`}> All-Books </NavLink>
+                        <NavLink to="/cart" className={({ isActive }) => `hover:text-green-600 ${isActive ? "text-green-600" : ""}`}> Cart </NavLink>
+                        <NavLink to="/signin" className={({ isActive }) => `hover:text-green-600 ${isActive ? "text-green-600" : ""}`}> Sign-in </NavLink>
                     </div>
                 </nav>
                 <div className="w-screen">

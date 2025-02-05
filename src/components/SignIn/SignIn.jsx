@@ -1,7 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 
 const SignIn = () => {
+
+    useEffect(() => {
+        document.title = "Sign In - Bookstore";
+    }, [])
+
     return (
         <div className="flex items-center justify-center w-[95%] m-auto mb-10 mt-3 lg:mt-0 lg:pt-10" style={{ minHeight: "calc(100vh - 240px)" }}>
             <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
