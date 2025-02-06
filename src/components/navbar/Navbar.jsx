@@ -1,11 +1,25 @@
 import { useState } from "react";
-import SearchBar from "../searchBar/SearchBar";
 import { NavLink } from "react-router-dom";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "../../firebase/firebase";
+import { useEffect } from "react";
+
 
 
 const Navbar = () => {
 
-    const [showMenu, setShowMenu] = useState(false);
+    const [user, setUser] = useState(null);
+
+    useEffect(() => {
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                let email = user.email.split("@");
+                setUser(email[0]);
+            } else {
+                setUser(null);
+            }
+        })
+    }, [auth])
 
     return (
         <div className="w-screen lg:pb-[62px] shadow-lg ">
@@ -34,13 +48,16 @@ const Navbar = () => {
                         <NavLink to="/" className={({ isActive }) => `hover:text-green-600 ${isActive ? "text-green-600" : ""}`}> Home </NavLink>
                         <NavLink to="/books" className={({ isActive }) => `hover:text-green-600 ${isActive ? "text-green-600" : ""}`}> All-Books </NavLink>
                         <NavLink to="/cart" className={({ isActive }) => `hover:text-green-600 ${isActive ? "text-green-600" : ""}`}> Cart </NavLink>
-                        <NavLink to="/signin" className={({ isActive }) => `hover:text-green-600 ${isActive ? "text-green-600" : ""}`}> Sign-in </NavLink>
+                        {
+                            user ?
+                                <NavLink to="/profile" className={({ isActive }) => `hover:text-green-600 ${isActive ? "text-green-600" : ""}`}> Account </NavLink>
+
+                                :
+                                <NavLink to="/signin" className={({ isActive }) => `hover:text-green-600 ${isActive ? "text-green-600" : ""}`}> Sign-in </NavLink>
+                        }
                     </div>
                 </nav>
                 <div className="w-screen">
-                    {
-                        showMenu && <SearchBar />
-                    }
                 </div>
             </div>
 

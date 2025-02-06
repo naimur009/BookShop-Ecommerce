@@ -9,6 +9,7 @@ import SignUp from './components/SignUp/SignUp';
 import Profile from './components/Profile/Profile';
 import { Provider } from 'react-redux';
 import { store } from './redux-store/store';
+import { Toaster } from 'react-hot-toast';
 
 function App() {
 
@@ -51,6 +52,7 @@ function App() {
       <div className="overflow-x-hidden h-screen overflow-y-scroll no-scrollbar bg-[#EFFAFC]">
         <RouterProvider router={router} />
       </div>
+      <Toaster />
     </Provider>
   )
 }

@@ -13,9 +13,9 @@ const AllBooks = () => {
                     <div className="grid gap-6 md:gap-4 2xl:gap-4 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 lg2:grid-cols-3 2xl:grid-cols-4">
 
                         {
-                            book.map((book) => {
+                            book.map((book, index) => {
                                 return (
-                                    <div key={book} className=' bg-white flex flex-col justify-center items-center rounded-lg hover:cursor-pointer hover:bg-gray-100 border-[1px] border-gray-400 p-2 md:p-4 hover:border-green-600'>
+                                    <div key={index} className=' bg-white flex flex-col justify-center items-center rounded-lg hover:cursor-pointer hover:bg-gray-100 border-[1px] border-gray-400 p-2 md:p-4 hover:border-green-600'>
                                         {/* Image */}
                                         <img className='h-auto max-h-[280px]' src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1534070883i/6411961.jpg" alt="" />
                                         {/* book name */}

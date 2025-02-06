@@ -80,9 +80,9 @@ const PopularWriter = () => {
                     <div className="grid gap-4 grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
 
                         {
-                            writer.map((writer) => {
+                            writer.map((writer, index) => {
                                 return (
-                                    <a href='#' className='flex flex-col justify-center items-center gap-2 p-2 w-28 h-36 rounded-lg bg-white hover:border-green-600 hover:border-2 hover:cursor-pointer hover:text-green-600'>
+                                    <a href='#' key={index} className='flex flex-col justify-center items-center gap-2 p-2 w-28 h-36 rounded-lg bg-white hover:border-green-600 hover:border-2 hover:cursor-pointer hover:text-green-600'>
                                         <div className='h-24 w-24 rounded-full'>
                                             <img className='h-[100%] w-[100%] p-2 rounded-full object-cover' src={writer.image} alt={writer.name} />
                                         </div>

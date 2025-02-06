@@ -20,9 +20,9 @@ const Category = () => {
 
                 <div className="grid gap-4 grid-cols-2 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4">
                     {
-                        cate.map((item) => {
+                        cate.map((item, index) => {
                             return (
-                                <a href="#" className="flex items-center rounded-lg border-2 border-gray-200 bg-white px-4 py-2 hover:border-green-600 hover:text-green-600 font-medium">
+                                <a key={index} href="#" className="flex items-center rounded-lg border-2 border-gray-200 bg-white px-4 py-2 hover:border-green-600 hover:text-green-600 font-medium">
                                     <svg className="me-2 h-4 w-4 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                         <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 15v5m-3 0h6M4 11h16M5 15h14a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1Z"></path>
                                     </svg>

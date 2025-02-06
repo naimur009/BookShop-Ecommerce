@@ -13,6 +13,7 @@ export default {
       },
     },
   },
+
   plugins: [
     function ({ addUtilities }) {
       const newUtilities = {
@@ -26,5 +27,7 @@ export default {
       };
       addUtilities(newUtilities);
     },
+    require('daisyui'),
   ],
+
 }
