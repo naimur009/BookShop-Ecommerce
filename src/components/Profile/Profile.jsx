@@ -44,27 +44,27 @@ const Profile = () => {
                             src={user?.photoURL ? user?.photoURL : imageUrl}
                             alt="Profile"
                         />
-                        <h3 className="text-xl font-semibold">{user?.email.split('@')[0]}</h3>
+                        <h3 className="text-base font-semibold">{user?.email.split('@')[0]}</h3>
                         {/* <p className="text-gray-600">{user?.email}</p> */}
                     </div>
                     <div className="mt-6 w-full">
                         <h4 className="text-lg font-semibold mb-4">Account Details</h4>
                         <div className="flex flex-col gap-4">
-                            <div className="flex justify-between items-center">
+                            <div className="flex gap-2 items-center">
                                 <span className="text-gray-600">Full Name:</span>
-                                <span className="font-medium">{user?.displayName || user?.email.split('@')[0]}</span>
+                                <span className="font-medium text-sm">{user?.displayName || user?.email.split('@')[0]}</span>
                             </div>
-                            <div className="flex justify-between items-center">
+                            <div className="flex gap-2 items-center">
                                 <span className="text-gray-600">Email:</span>
-                                <span className="font-medium">{user?.email}</span>
+                                <span className="font-medium text-sm">{user?.email}</span>
                             </div>
                             {/* <div className="flex justify-between items-center">
                             <span className="text-gray-600">Phone:</span>
                             <span className="font-medium">{user?.phoneNumber || "N/A"}</span>
                         </div> */}
-                            <div className="flex justify-between items-center">
+                            <div className="flex gap-2 items-center">
                                 <span className="text-gray-600">Address:</span>
-                                <span className="font-medium">123 Main St, City, Country</span>
+                                <span className="font-medium text-sm">123 Main St, City, Country</span>
                             </div>
                         </div>
                     </div>

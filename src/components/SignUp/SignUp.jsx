@@ -14,6 +14,13 @@ const SignUp = () => {
     const isPending = useSelector(state => state.auth.auth.pending);
     const error = useSelector(state => state.auth.auth.error);
 
+    useEffect(() => {
+        if (popUp && error) {
+            toast.error(error?.code);
+        }
+    }, [error])
+
+
     const [errorMessageEmail, setErrorMessageEmail] = useState();
     const [errorMessagePassword, setErrorMessagePassword] = useState();
 
@@ -38,12 +45,16 @@ const SignUp = () => {
     const [confirmPassword, setConfirmPassword] = useState();
 
     const dispatch = useDispatch();
+    const [popUp, setPopUp] = useState(false);
+
 
     const handleSignUpWithGoogle = () => {
+        setPopUp(true);
         dispatch(signInWithGoogle());
     }
 
     const handleSubmit = (e) => {
+        setPopUp(false);
         setErrorMessagePassword();
         setErrorMessageEmail();
         e.preventDefault();

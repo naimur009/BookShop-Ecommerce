@@ -2,26 +2,40 @@ import { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { signIn, signInWithGoogle } from '../../redux-features/auth';
 import { useDispatch, useSelector } from 'react-redux';
+import toast from 'react-hot-toast';
 
 const SignIn = () => {
 
     useEffect(() => {
         document.title = "Sign In - Bookstore";
+
     }, [])
 
     const isPending = useSelector(state => state.auth.auth.pending);
     const logInError = useSelector(state => state.auth.auth.error)
 
+    useEffect(() => {
+        if (popUp && logInError) {
+            toast.error(logInError?.code);
+        }
+    }, [logInError])
+
+
+
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
 
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
+
+    const [popUp, setPopUp] = useState(false);
 
     const handleSignUpWithGoogle = () => {
+        setPopUp(true);
         dispatch(signInWithGoogle());
     }
 
     const handleSignIn = (e) => {
+        setPopUp(false);
         e.preventDefault();
         dispatch(signIn({ email, password }));
     }
@@ -76,7 +90,7 @@ const SignIn = () => {
                                     setPassword(e.target.value);
                                 }}
                             />
-                            {logInError && (
+                            {!popUp && logInError && (
                                 <p className="text-sm text-red-600 pt-2">
                                     Invalid-credential
                                 </p>
