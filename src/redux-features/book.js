@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { auth, firestore } from "../firebase/firebase";
-import { collection, doc, getDocs } from "firebase/firestore";
+import { firestore } from "../firebase/firebase";
+import { collection, getDocs } from "firebase/firestore";
 
 const initialState = {
     book: {

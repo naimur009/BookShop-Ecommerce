@@ -59,7 +59,7 @@ const AllBooks = ({ data }) => {
             }
             {
                 isPending &&
-                <div className="w-full flex items-center justify-center mt-[40%] mb-[40%]">
+                <div className="w-full flex items-center justify-center mt-[80%]">
                     <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-green-600"></div>
                 </div>
             }

@@ -1,12 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { auth, googleProvider } from "../firebase/firebase";
+import { auth, googleProvider, firestore } from "../firebase/firebase";
 import {
     createUserWithEmailAndPassword,
     signInWithEmailAndPassword,
     signInWithPopup,
     signOut,
 } from "firebase/auth";
+import { doc, setDoc } from "firebase/firestore";
 
 const initialState = {
     auth: {
@@ -19,8 +20,16 @@ const initialState = {
 export const signInWithGoogle = createAsyncThunk(
     "signInWithGoogle",
     async () => {
-        await signInWithPopup(auth, googleProvider);
-        window.location.href = "/";
+        const info = await signInWithPopup(auth, googleProvider);
+        const docRef = doc(firestore, "user", info.user.uid);
+        const data = {
+            basicInfo: {
+                name: " ",
+                mobile: " ",
+            }
+        }
+        await setDoc(docRef, data);
+        // window.location.href = "/";
     }
 )
 

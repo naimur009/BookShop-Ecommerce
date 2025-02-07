@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import Filter from '../components/Filter/Filter';
 import AllBooks from '../components/All-Books/AllBooks';
+import { useSelector } from 'react-redux';
 
 const AllBookList = () => {
 
     useEffect(() => {
         document.title = "All Books - Bookstore";
     }, [])
+
+    const isPending = useSelector(state => state.book.book.pending);
+
 
     const [data, setData] = useState([]);
 
@@ -16,7 +20,7 @@ const AllBookList = () => {
     const [showFilter, setShowFilter] = useState(false);
 
     return (
-        <div className='w-screen'>
+        <div className='w-screen' style={{ minHeight: "calc(100vh - 190px)" }}>
             <div className='w-[95%] sm:w-[85%] lg:w-[90%] m-auto flex flex-col lg2:flex-row flex-shrink-0 justify-center gap-3'>
                 <div className='w-full m-auto mt-2 lg:mt-6 lg2:hidden '>
 
@@ -36,7 +40,10 @@ const AllBookList = () => {
                 </div>
 
                 <div className='hidden lg2:flex lg2:flex-shrink-0'>
-                    <Filter filter={filter} />
+                    {
+                        !isPending &&
+                        <Filter filter={filter} />
+                    }
                 </div>
                 <AllBooks data={data} />
             </div>
