@@ -16,11 +16,6 @@ const Filter = ({ filter }) => {
         setOpenFilters((prev) => ({ ...prev, [filter]: !prev[filter] }));
     };
 
-    // const categories = [
-    //     "Apple askdso vjoiedvf (56)", "Microsoft (45)", "Logitech (97)", "Sony (234)", "Asus (97)",
-    //     "Dell (56)", "MSI (97)", "Canon (49)", "BenQ (23)", "Razor (49)"
-    // ];
-
     const toggleCategory = (category) => {
         setSelectedCategories((prev) =>
             prev.includes(category)
@@ -43,7 +38,6 @@ const Filter = ({ filter }) => {
             categories.push(data.category);
         }
     })
-    console.log(categories);
 
     const handleFilter = () => {
         filter(selectedCategories);

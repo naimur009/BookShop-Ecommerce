@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Filter from '../components/Filter/Filter';
 import AllBooks from '../components/All-Books/AllBooks';
-import { useSelector } from 'react-redux';
 
 const AllBookList = () => {
 
@@ -9,7 +8,7 @@ const AllBookList = () => {
         document.title = "All Books - Bookstore";
     }, [])
 
-    const [data, setData] = useState();
+    const [data, setData] = useState([]);
 
     const filter = (filterData) => {
         setData(filterData)

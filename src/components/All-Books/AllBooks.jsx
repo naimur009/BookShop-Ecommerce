@@ -8,7 +8,7 @@ const AllBooks = ({ data }) => {
     const isPending = useSelector(state => state.book.book.pending);
 
     let book = [];
-    if (!data) {
+    if (data.length === 0) {
         book = allBooks;
     }
     else {
