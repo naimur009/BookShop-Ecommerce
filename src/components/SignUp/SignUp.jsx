@@ -40,9 +40,9 @@ const SignUp = () => {
 
 
 
-    const [email, setEmail] = useState();
-    const [password, setPassword] = useState();
-    const [confirmPassword, setConfirmPassword] = useState();
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [confirmPassword, setConfirmPassword] = useState("");
 
     const dispatch = useDispatch();
     const [popUp, setPopUp] = useState(false);

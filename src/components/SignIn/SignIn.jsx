@@ -8,7 +8,6 @@ const SignIn = () => {
 
     useEffect(() => {
         document.title = "Sign In - Bookstore";
-
     }, [])
 
     const isPending = useSelector(state => state.auth.auth.pending);
