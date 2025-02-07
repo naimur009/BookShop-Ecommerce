@@ -1,7 +1,10 @@
 import { NavLink } from "react-router-dom";
+import { useSelector } from "react-redux";
+
 
 const BookList = () => {
-    let book = [1, 2, 3, 4, 5, 6, 7];
+    const book = useSelector(state => state.book?.book?.data);
+
     return (
         <div className="flex flex-shrink-0 ">
             <section className="w-[95%] shadow-md bg-white py-4 lg:p-5 antialiased lg:py-8 rounded-lg mt-3 lg2:w-[80%] xl:w-[70%] m-auto">
@@ -20,16 +23,16 @@ const BookList = () => {
                     <div className="grid gap-6 2xl:gap-8 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5">
 
                         {
-                            book.map((book, index) => {
+                            book?.slice(0, 20).map((book, index) => {
                                 return (
-                                    <div key={index} className=' bg-white flex flex-col justify-center items-center rounded-lg hover:cursor-pointer hover:bg-gray-100 border-[1px] border-gray-400 p-2 md:p-4 hover:border-green-600'>
+                                    <div key={book.id} className=' bg-white flex flex-col justify-center items-center rounded-lg hover:cursor-pointer hover:bg-gray-100 border-[1px] border-gray-400 p-2 md:p-4 hover:border-green-600'>
                                         {/* Image */}
                                         <img className='h-auto max-h-[280px]' src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1534070883i/6411961.jpg" alt="" />
                                         {/* book name */}
                                         <div className='flex flex-col items-center mt-1 mb-0'>
-                                            <p className='text-sm font-medium text-center'>The Lost Symbol</p>
-                                            <p className='text-xs text-center'>Dan Brown</p>
-                                            <p>$20</p>
+                                            <p className='text-sm font-medium text-center'>{book.tittle}</p>
+                                            <p className='text-xs text-center'>{book.author}</p>
+                                            <p>${book.price}</p>
                                         </div>
                                         <div className='w-full flex justify-center'>
                                             <button className='w-[100%] bg-green-600 text-white font-semibold py-1.5 rounded-lg hover:bg-white border-2 border-green-600 hover:text-green-600 text-xs md:text-sm'>

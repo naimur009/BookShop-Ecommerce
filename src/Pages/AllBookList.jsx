@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react';
-import { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Filter from '../components/Filter/Filter';
 import AllBooks from '../components/All-Books/AllBooks';
+import { useSelector } from 'react-redux';
 
 const AllBookList = () => {
 
@@ -9,6 +9,11 @@ const AllBookList = () => {
         document.title = "All Books - Bookstore";
     }, [])
 
+    const [data, setData] = useState();
+
+    const filter = (filterData) => {
+        setData(filterData)
+    }
     const [showFilter, setShowFilter] = useState(false);
 
     return (
@@ -26,15 +31,15 @@ const AllBookList = () => {
                     </div>
 
                     {
-                        showFilter && <Filter />
+                        showFilter && <Filter filter={filter} />
                     }
 
                 </div>
 
                 <div className='hidden lg2:flex lg2:flex-shrink-0'>
-                    <Filter />
+                    <Filter filter={filter} />
                 </div>
-                <AllBooks />
+                <AllBooks data={data} />
             </div>
         </div >
     );

@@ -1,8 +1,8 @@
 import authreducers from "../redux-features/auth"
-import checkreducers from "../redux-features/check"
+import bookreducers from "../redux-features/book"
 import { combineReducers } from "@reduxjs/toolkit"
 
 export const combinedReducers = combineReducers({
     auth: authreducers,
-    check: checkreducers,
+    book: bookreducers,
 })

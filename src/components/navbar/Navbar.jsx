@@ -3,12 +3,19 @@ import { NavLink } from "react-router-dom";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../../firebase/firebase";
 import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { getData } from "../../redux-features/book";
 
 
 
 const Navbar = () => {
 
     const [user, setUser] = useState(null);
+
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(getData())
+    }, [])
 
     useEffect(() => {
         onAuthStateChanged(auth, (user) => {

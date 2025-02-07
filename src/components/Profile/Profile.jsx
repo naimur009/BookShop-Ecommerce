@@ -2,7 +2,7 @@ import { onAuthStateChanged } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
 import { auth } from "../../firebase/firebase"
 import { logOut } from "../../redux-features/auth";
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 const Profile = () => {
     const [user, setUser] = useState();
