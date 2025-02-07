@@ -37,7 +37,7 @@ const Profile = () => {
             {
                 !pending &&
                 <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-2xl">
-                    <h2 className="text-lg font-bold mb-2 text-center">Profile Dashboard</h2>
+                    <h2 className="text-lg font-bold mb-2 text-center">Dashboard</h2>
                     <div className="flex flex-col items-center">
                         <img
                             className="w-24 h-24 rounded-full mb-4"
@@ -50,21 +50,21 @@ const Profile = () => {
                     <div className="mt-6 w-full">
                         <h4 className="text-lg font-semibold mb-4">Account Details</h4>
                         <div className="flex flex-col gap-4">
-                            <div className="flex gap-2 items-center">
+                            <div className="flex lg:justify-between gap-2 items-center">
                                 <span className="text-gray-600">Full Name:</span>
-                                <span className="font-medium text-sm">{user?.displayName || user?.email.split('@')[0]}</span>
+                                <span className="font-medium text-sm lg:text-lg">{user?.displayName || user?.email.split('@')[0]}</span>
                             </div>
-                            <div className="flex gap-2 items-center">
+                            <div className="flex gap-2 items-center lg:justify-between">
                                 <span className="text-gray-600">Email:</span>
-                                <span className="font-medium text-sm">{user?.email}</span>
+                                <span className="font-medium text-sm lg:text-lg">{user?.email}</span>
                             </div>
                             {/* <div className="flex justify-between items-center">
                             <span className="text-gray-600">Phone:</span>
                             <span className="font-medium">{user?.phoneNumber || "N/A"}</span>
                         </div> */}
-                            <div className="flex gap-2 items-center">
+                            <div className="flex gap-2 lg:justify-between items-center">
                                 <span className="text-gray-600">Address:</span>
-                                <span className="font-medium text-sm">123 Main St, City, Country</span>
+                                <span className="font-medium text-sm lg:text-lg">123 Main St, City, Country</span>
                             </div>
                         </div>
                     </div>

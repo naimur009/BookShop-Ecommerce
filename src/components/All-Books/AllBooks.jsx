@@ -4,7 +4,7 @@ const AllBooks = () => {
     let book = [1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11]
     return (
         <div className='lg2:flex lg2:flex-shrink-0'>
-            <section className="bg-white py-2 lg2:p-5 antialiased lg:py-8 rounded-lg lg2:mt-7">
+            <section className="bg-white py-2 lg2:p-5 antialiased lg:py-8 rounded-lg lg2:mt-7 shadow-md">
                 <div className="mx-auto px-4 2xl:px-0">
                     <div className="mb-4 flex items-center justify-between gap-1 lg:mb-4">
                         <h2 className="text-lg font-semibold">Books</h2>
