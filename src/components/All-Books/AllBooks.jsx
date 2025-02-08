@@ -1,11 +1,7 @@
 
 import { useDispatch, useSelector } from 'react-redux';
 import { addTocart } from '../../redux-features/user';
-import { fetchCartData } from '../../redux-features/user';
-import { onAuthStateChanged } from 'firebase/auth';
-import { useState, useEffect } from 'react';
 import toast from 'react-hot-toast';
-import { auth } from '../../firebase/firebase';
 
 const AllBooks = ({ data }) => {
 
@@ -26,18 +22,9 @@ const AllBooks = ({ data }) => {
 
     const dispatch = useDispatch();
 
-    const [user, setUser] = useState(null);
-
-    useEffect(() => {
-        onAuthStateChanged(auth, (user) => {
-            setUser(user);
-        })
-    }, [])
-
     const handleAddToCart = (book) => {
-        if (user) {
+        if (localStorage.getItem("userId")) {
             dispatch(addTocart(book));
-            dispatch(fetchCartData());
         }
         else {
             toast.error("Please log in first")

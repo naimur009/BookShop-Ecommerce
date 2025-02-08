@@ -1,9 +1,26 @@
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { addTocart } from '../../redux-features/user';
+import { useDispatch } from "react-redux";
+import toast from "react-hot-toast";
 
 
 const BookList = () => {
     const book = useSelector(state => state.book?.book?.data);
+
+    const dispatch = useDispatch();
+
+    const handleAddToCart = (book) => {
+        const userId = localStorage.getItem("userId")
+        if (userId) {
+            dispatch(addTocart(book));
+            console.log("i am here");
+        }
+        else {
+            toast.error("Please log in first")
+        }
+
+    }
 
     return (
         <div className="flex flex-shrink-0 ">
@@ -23,7 +40,7 @@ const BookList = () => {
                     <div className="grid gap-6 2xl:gap-8 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5">
 
                         {
-                            book?.slice(0, 20).map((book, index) => {
+                            book?.slice(0, 20).map((book) => {
                                 return (
                                     <div key={book.id} className=' bg-white flex flex-col justify-center items-center rounded-lg hover:cursor-pointer hover:bg-gray-100 border-[1px] border-gray-400 p-2 md:p-4 hover:border-green-600'>
                                         {/* Image */}
@@ -35,7 +52,11 @@ const BookList = () => {
                                             <p>${book.price}</p>
                                         </div>
                                         <div className='w-full flex justify-center'>
-                                            <button className='w-[100%] bg-green-600 text-white font-semibold py-1.5 rounded-lg hover:bg-white border-2 border-green-600 hover:text-green-600 text-xs md:text-sm'>
+                                            <button className='w-[100%] bg-green-600 text-white font-semibold py-1.5 rounded-lg hover:bg-white border-2 border-green-600 hover:text-green-600 text-xs md:text-sm'
+                                                onClick={() => {
+                                                    handleAddToCart(book)
+                                                }}
+                                            >
                                                 Add to cart
                                             </button>
                                         </div>

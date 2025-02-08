@@ -18,6 +18,18 @@ const Cart = () => {
     const cartItems = useSelector(state => state.user?.user?.data);
     const isPending = useSelector(state => state.user.user.pending);
 
+
+    let subTotal = 0;
+    cartItems?.forEach((item) => {
+        subTotal += item.price;
+    })
+
+    let deliveryCharges = 0
+    if (subTotal) {
+        deliveryCharges = 10;
+    }
+
+
     if (isPending) {
         return (
             <div className="w-full flex items-center justify-center h-full">
@@ -27,7 +39,7 @@ const Cart = () => {
     }
 
     return (
-        <div className='mt-4 lg:mt-6 flex flex-col w-[95%] md:w-[70%] items-center lg2:items-start m-auto gap-3 lg2:flex-row'>
+        <div className='mt-4 lg:mt-6 flex flex-col w-[95%] md:w-[70%] items-center lg2:items-start m-auto gap-3 lg2:flex-row' style={{ minHeight: "calc(100vh - 220px)" }}>
             <div className='w-full lg2:w-3/5 bg-white rounded-xl shadow-lg p-6 shrink-0'>
                 <h1 className='text-lg font-semibold text-center mb-2'>Your Cart Items</h1>
                 <div>
@@ -64,17 +76,17 @@ const Cart = () => {
                     <h2 className='text-base font-bold mb-4'>Billing</h2>
                     <div className='flex justify-between mb-4'>
                         <span className='text-gray-600'>Subtotal</span>
-                        <span className='font-semibold'>$80</span>
+                        <span className='font-semibold'>${subTotal}</span>
                     </div>
                     <div className='flex justify-between mb-4'>
                         <span className='text-gray-600'>Delivery charges</span>
-                        <span className='font-semibold'>Free</span>
+                        <span className='font-semibold'>${deliveryCharges}</span>
                     </div>
                     <div className='flex justify-between mb-4'>
                         <span className='text-gray-600'>Total</span>
-                        <span className='font-semibold'>$80</span>
+                        <span className='font-semibold'>${subTotal + deliveryCharges}</span>
                     </div>
-                    <input type="text" placeholder='Enter promo code' className='border border-gray-300 p-2 rounded w-full mb-4' />
+                    {/* <input type="text" placeholder='Enter promo code' className='border border-gray-300 p-2 rounded w-full mb-4' /> */}
                     <h2 className='text-base font-bold mb-4'>Shipping Address</h2>
                     <div className='flex flex-col gap-2 mb-4 text-sm'>
                         <input type="text" placeholder='Full Name' className='border border-gray-300 p-2 rounded' />

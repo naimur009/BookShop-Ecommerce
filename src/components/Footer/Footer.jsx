@@ -32,7 +32,7 @@ const Footer = () => {
                             <NavLink to="/books" className={({ isActive }) => `hover:underline me-4 md:me-6 hover:text-green-600 ${isActive ? "text-green-600" : ""}`}>All Books</NavLink>
                         </li>
                         <li>
-                            <NavLink to="/profile" className={({ isActive }) => `hover:underline me-4 md:me-6 hover:text-green-600 ${isActive ? "text-green-600" : ""}`}>Licensing</NavLink>
+                            <NavLink to="#" className={({ isActive }) => `hover:underline me-4 md:me-6 hover:text-green-600 ${isActive ? "text-green-600" : ""}`}>Licensing</NavLink>
                         </li>
                         <li>
                             <NavLink to="#" className={({ isActive }) => `hover:underline me-4 md:me-6 hover:text-green-600 ${isActive ? "text-green-600" : ""}`}>Contact</NavLink>

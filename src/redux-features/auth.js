@@ -70,7 +70,7 @@ export const logOut = createAsyncThunk(
     "logOut",
     async () => {
         signOut(auth);
-        localStorage.setItem("userId", null);
+        localStorage.removeItem("userId");
         window.location.href = "/signin";
     }
 )
