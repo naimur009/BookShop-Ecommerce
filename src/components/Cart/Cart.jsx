@@ -1,39 +1,61 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { fetchCartData } from '../../redux-features/user';
 
 const Cart = () => {
-    const cartItems = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
+
+    const dispatch = useDispatch();
 
     useEffect(() => {
         document.title = "Cart - Bookstore";
     }, [])
+
+    useEffect(() => {
+        dispatch(fetchCartData());
+    }, [dispatch])
+
+    const cartItems = useSelector(state => state.user?.user?.data);
+    const isPending = useSelector(state => state.user.user.pending);
+
+    if (isPending) {
+        return (
+            <div className="w-full flex items-center justify-center h-full">
+                <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-green-600"></div>
+            </div>
+        )
+    }
 
     return (
         <div className='mt-4 lg:mt-6 flex flex-col w-[95%] md:w-[70%] items-center lg2:items-start m-auto gap-3 lg2:flex-row'>
             <div className='w-full lg2:w-3/5 bg-white rounded-xl shadow-lg p-6 shrink-0'>
                 <h1 className='text-lg font-semibold text-center mb-2'>Your Cart Items</h1>
                 <div>
-                    {cartItems.map((item, index) => (
-                        <div key={index} className='flex justify-between gap-8 items-center mb-4 p-4 border-b'>
-                            <div className='flex items-center gap-4'>
-                                <img className='h-20 lg:h-32' src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1534070883i/6411961.jpg" alt="Book" />
-                                <div>
-                                    <div className='text-xs lg:text-sm'>The Lost Symbol The Lost Symbol The Lost Symbol The Lost Symbol </div>
-                                    <div className='text-gray-600 text-xs'>Dan Brown</div>
-                                    <div className='flex items-center mt-2'>
-                                        <button className='text-gray-600 border rounded p-1'>
-                                            <svg className='h-4 w-4' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M432 256c0 17.7-14.3 32-32 32H48c-17.7 0-32-14.3-32-32s14.3-32 32-32h352c17.7 0 32 14.3 32 32z" /></svg>
-                                        </button>
-                                        <span className='mx-2'>1</span>
-                                        <button className='text-gray-600 border rounded p-1'>
-                                            <svg className='h-4 w-4' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32v144H48c-17.7 0-32 14.3-32 32s14.3 32 32 32h144v144c0 17.7 14.3 32 32 32s32-14.3 32-32V288h144c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z" /></svg>
-                                        </button>
+                    {
+                        cartItems.length > 0 ? cartItems.map((item) => (
+                            <div key={item.id} className='flex justify-between gap-8 items-center mb-4 p-4 border-b'>
+                                <div className='flex items-center gap-4'>
+                                    <img className='h-20 lg:h-32' src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1534070883i/6411961.jpg" alt="Book" />
+                                    <div>
+                                        <div className='text-xs lg:text-sm'>{item.tittle} </div>
+                                        <div className='text-gray-600 text-xs'>{item.author}</div>
+                                        <div className='flex items-center mt-2'>
+                                            <button className='text-gray-600 border rounded p-1'>
+                                                <svg className='h-4 w-4' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M432 256c0 17.7-14.3 32-32 32H48c-17.7 0-32-14.3-32-32s14.3-32 32-32h352c17.7 0 32 14.3 32 32z" /></svg>
+                                            </button>
+                                            <span className='mx-2'>1</span>
+                                            <button className='text-gray-600 border rounded p-1'>
+                                                <svg className='h-4 w-4' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32v144H48c-17.7 0-32 14.3-32 32s14.3 32 32 32h144v144c0 17.7 14.3 32 32 32s32-14.3 32-32V288h144c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z" /></svg>
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
+                                <div className='text-base font-semibold'>${item.price}</div>
                             </div>
-                            <div className='text-base font-semibold'>$20</div>
-
-                        </div>
-                    ))}
+                        ))
+                            :
+                            <div className='w-full flex justify-center text-sm'>Your Cart is Empty</div>
+                    }
                 </div>
             </div>
 

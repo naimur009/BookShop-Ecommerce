@@ -22,13 +22,12 @@ export const getData = createAsyncThunk(
                 id: book.id,
                 tittle: book.data().tittle,
                 author: book.data().author,
-                category: book.data()?.category,
+                category: book.data()?.category || "N/A",
                 price: book.data().price,
                 image: book.data().image,
             }
         })
         return data;
-
     }
 
 )

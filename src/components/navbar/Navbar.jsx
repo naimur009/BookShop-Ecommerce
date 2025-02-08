@@ -5,28 +5,24 @@ import { auth } from "../../firebase/firebase";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { getData } from "../../redux-features/book";
+import { fetchCartData } from '../../redux-features/user';
+import { useSelector } from "react-redux";
 
 
 
 const Navbar = () => {
 
-    const [user, setUser] = useState(null);
+    const [user, setUser] = useState(localStorage.getItem("userId"));
+
 
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(getData())
+        if (user) {
+            dispatch(fetchCartData())
+        }
     }, [])
 
-    useEffect(() => {
-        onAuthStateChanged(auth, (user) => {
-            if (user) {
-                let email = user.email.split("@");
-                setUser(email[0]);
-            } else {
-                setUser(null);
-            }
-        })
-    }, [auth])
 
     return (
         <div className="w-screen lg:pb-[62px] shadow-lg ">

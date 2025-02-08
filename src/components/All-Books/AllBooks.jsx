@@ -1,10 +1,15 @@
 
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { addTocart } from '../../redux-features/user';
+import { fetchCartData } from '../../redux-features/user';
+import { onAuthStateChanged } from 'firebase/auth';
+import { useState, useEffect } from 'react';
+import toast from 'react-hot-toast';
+import { auth } from '../../firebase/firebase';
 
 const AllBooks = ({ data }) => {
 
     const allBooks = useSelector(state => state.book?.book?.data);
-
     const isPending = useSelector(state => state.book.book.pending);
 
     let book = [];
@@ -19,50 +24,76 @@ const AllBooks = ({ data }) => {
         })
     }
 
+    const dispatch = useDispatch();
+
+    const [user, setUser] = useState(null);
+
+    useEffect(() => {
+        onAuthStateChanged(auth, (user) => {
+            setUser(user);
+        })
+    }, [])
+
+    const handleAddToCart = (book) => {
+        if (user) {
+            dispatch(addTocart(book));
+            dispatch(fetchCartData());
+        }
+        else {
+            toast.error("Please log in first")
+        }
+
+    }
+
+    if (isPending) {
+        return (
+            <div className="w-full flex items-center justify-center h-screen">
+                <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-green-600"></div>
+            </div>
+        )
+    }
+
     return (
         <div className='lg2:flex lg2:flex-shrink-0'>
-            {
-                !isPending &&
-                <section className="bg-white py-2 lg2:p-5 antialiased lg:py-8 rounded-lg lg2:mt-7 shadow-md">
-                    <div className="mx-auto px-4 2xl:px-0">
-                        <div className="mb-4 flex items-center justify-between gap-1 lg:mb-4">
-                            <h2 className="text-lg font-semibold">Books</h2>
-                        </div>
-
-                        <div className="grid gap-6 md:gap-4 2xl:gap-4 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 lg2:grid-cols-3 2xl:grid-cols-4">
-
-                            {
-                                book?.map((book) => {
-                                    return (
-                                        <div key={book.id} className=' bg-white flex flex-col justify-center items-center rounded-lg hover:cursor-pointer hover:bg-gray-100 border-[1px] border-gray-400 p-2 md:p-4 hover:border-green-600'>
-                                            {/* Image */}
-                                            <img className='h-auto max-h-[280px]' src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1534070883i/6411961.jpg" alt="" />
-                                            {/* book name */}
-                                            <div className='flex flex-col items-center mt-1 mb-0'>
-                                                <p className='text-sm font-medium text-center'>{book.tittle}</p>
-                                                <p className='text-xs text-center'>{book.author}</p>
-                                                <p>${book.price}</p>
-                                            </div>
-                                            <div className='w-full flex justify-center'>
-                                                <button className='w-[100%] bg-green-600 text-white font-semibold py-1.5 rounded-lg hover:bg-white border-2 border-green-600 hover:text-green-600 text-xs md:text-sm'>
-                                                    Add to cart
-                                                </button>
-                                            </div>
-                                        </div>
-                                    )
-                                })
-                            }
-
-                        </div>
+            <section className="bg-white py-2 lg2:p-5 antialiased lg:py-8 rounded-lg lg2:mt-7 shadow-md">
+                <div className="mx-auto px-4 2xl:px-0">
+                    <div className="mb-4 flex items-center justify-between gap-1 lg:mb-4">
+                        <h2 className="text-lg font-semibold">Books</h2>
                     </div>
-                </section>
-            }
-            {
-                isPending &&
-                <div className="w-full flex items-center justify-center mt-[80%]">
-                    <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-green-600"></div>
+
+                    <div className="grid gap-6 md:gap-4 2xl:gap-4 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 lg2:grid-cols-3 2xl:grid-cols-4">
+
+                        {
+                            book?.map((book) => {
+                                return (
+                                    <div key={book.id} className=' bg-white flex flex-col justify-center items-center rounded-lg hover:cursor-pointer hover:bg-gray-100 border-[1px] border-gray-400 p-2 md:p-4 hover:border-green-600'>
+                                        {/* Image */}
+                                        <img className='h-auto max-h-[280px]' src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1534070883i/6411961.jpg" alt="" />
+                                        {/* book name */}
+                                        <div className='flex flex-col items-center mt-1 mb-0'>
+                                            <p className='text-sm font-medium text-center'>{book.tittle}</p>
+                                            <p className='text-xs text-center'>{book.author}</p>
+                                            <p>${book.price}</p>
+                                        </div>
+                                        <div className='w-full flex justify-center'>
+                                            <button key="hallo" className='w-[100%] bg-green-600 text-white font-semibold py-1.5 rounded-lg hover:bg-white border-2 border-green-600 hover:text-green-600 text-xs md:text-sm'
+                                                onClick={() => {
+                                                    handleAddToCart(book)
+                                                }}
+                                            >
+                                                Add to cart
+                                            </button>
+                                        </div>
+                                    </div>
+                                )
+                            })
+                        }
+
+                    </div>
                 </div>
-            }
+            </section>
+
+
         </div>
     );
 };

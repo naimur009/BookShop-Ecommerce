@@ -7,7 +7,7 @@ import {
     signInWithPopup,
     signOut,
 } from "firebase/auth";
-import { doc, setDoc } from "firebase/firestore";
+import { doc, getDoc, setDoc } from "firebase/firestore";
 
 const initialState = {
     auth: {
@@ -22,21 +22,37 @@ export const signInWithGoogle = createAsyncThunk(
     async () => {
         const info = await signInWithPopup(auth, googleProvider);
         const docRef = doc(firestore, "user", info.user.uid);
-        const data = {
-            basicInfo: {
-                name: " ",
-                mobile: " ",
+        const document = await getDoc(docRef)
+        localStorage.setItem("userId", info.user.uid);
+        if (!document.exists()) {
+            const data = {
+                basicInfo: {
+                    email: info.user.email,
+                },
+                cart: [],
+                order: []
             }
+            await setDoc(docRef, data, { merge: true });
         }
-        await setDoc(docRef, data);
-        // window.location.href = "/";
+        window.location.href = "/";
+
     }
 )
 
 export const signUp = createAsyncThunk(
     "signUp",
     async ({ email, password }) => {
-        await createUserWithEmailAndPassword(auth, email, password);
+        const info = await createUserWithEmailAndPassword(auth, email, password);
+        localStorage.setItem("userId", info.user.uid);
+        const docRef = doc(firestore, "user", info.user.uid);
+        const data = {
+            basicInfo: {
+                email: info.user.email,
+            },
+            cart: [],
+            order: []
+        }
+        await setDoc(docRef, data);
         window.location.href = "/";
     }
 )
@@ -44,7 +60,8 @@ export const signUp = createAsyncThunk(
 export const signIn = createAsyncThunk(
     "signIn",
     async ({ email, password }) => {
-        await signInWithEmailAndPassword(auth, email, password);
+        const info = await signInWithEmailAndPassword(auth, email, password);
+        localStorage.setItem("userId", info.user.uid);
         window.location.href = "/";
     }
 )
@@ -53,6 +70,7 @@ export const logOut = createAsyncThunk(
     "logOut",
     async () => {
         signOut(auth);
+        localStorage.setItem("userId", null);
         window.location.href = "/signin";
     }
 )

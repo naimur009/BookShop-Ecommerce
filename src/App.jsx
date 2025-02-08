@@ -10,6 +10,7 @@ import Profile from './components/Profile/Profile';
 import { Provider } from 'react-redux';
 import { store } from './redux-store/store';
 import { Toaster } from 'react-hot-toast';
+import CartPage from './Pages/CartPage';
 
 function App() {
 
@@ -28,7 +29,7 @@ function App() {
         },
         {
           path: "/cart",
-          element: <Cart />
+          element: <CartPage />
         },
         {
           path: "/signin",

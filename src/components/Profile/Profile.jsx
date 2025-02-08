@@ -29,7 +29,7 @@ const Profile = () => {
         setPending(true);
         setTimeout(() => {
             dispatch(logOut());
-        }, 500)
+        }, 0)
     }
 
     return (
