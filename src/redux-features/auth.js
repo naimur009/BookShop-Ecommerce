@@ -32,10 +32,9 @@ export const signInWithGoogle = createAsyncThunk(
                 cart: [],
                 order: []
             }
-            await setDoc(docRef, data, { merge: true });
+            await setDoc(docRef, data);
         }
         window.location.href = "/";
-
     }
 )
 
